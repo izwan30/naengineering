@@ -9,46 +9,49 @@ const navItems = [
 ---
 
 <header class="fixed w-full z-50 transition-all duration-300" id="navbar">
-  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-    <a href="/" class="text-2xl font-bold text-primary-700 flex items-center">
-      <span class="font-heading">N.A. Engineering</span>
-    </a>
-    
-    <nav class="hidden md:flex space-x-6">
-      {navItems.map(item => (
-        <a href={item.url} class="text-gray-700 hover:text-primary-600 transition-colors font-medium">
-          {item.name}
-        </a>
-      ))}
-      <a href="/#contact" class="bg-primary-600 text-white px-4 py-2 rounded hover:bg-primary-700 transition-colors">
-        Get a Quote
+  <div class="container mx-auto px-4 py-4">
+    <div class="flex justify-between items-center">
+      <a href="/" class="text-xl md:text-2xl font-bold text-primary-700 flex items-center">
+        <span class="font-heading">N.A. Engineering</span>
       </a>
-    </nav>
-    
-    <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-      </svg>
-    </button>
+      
+      <nav class="hidden md:flex space-x-6">
+        {navItems.map(item => (
+          <a href={item.url} class="text-gray-700 hover:text-primary-600 transition-colors font-medium">
+            {item.name}
+          </a>
+        ))}
+        <a href="/#contact" class="bg-primary-600 text-white px-4 py-2 rounded hover:bg-primary-700 transition-colors">
+          Get a Quote
+        </a>
+      </nav>
+      
+      <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+    </div>
   </div>
   
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="hidden md:hidden bg-white w-full border-t border-gray-200">
-    <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
-      {navItems.map(item => (
-        <a href={item.url} class="block py-2 text-gray-700 hover:text-primary-600 transition-colors">
-          {item.name}
+    <div class="container mx-auto px-4 py-4">
+      <div class="flex flex-col space-y-4">
+        {navItems.map(item => (
+          <a href={item.url} class="block py-2 text-gray-700 hover:text-primary-600 transition-colors text-lg">
+            {item.name}
+          </a>
+        ))}
+        <a href="/#contact" class="bg-primary-600 text-white px-4 py-3 rounded text-center hover:bg-primary-700 transition-colors text-lg">
+          Get a Quote
         </a>
-      ))}
-      <a href="/#contact" class="bg-primary-600 text-white px-4 py-2 rounded text-center hover:bg-primary-700 transition-colors">
-        Get a Quote
-      </a>
+      </div>
     </div>
   </div>
 </header>
 
 <script is:inline>
-  // Handle mobile menu toggle
   document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
