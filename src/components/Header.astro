@@ -27,23 +27,30 @@ const navItems = [
       </nav>
       
       <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </div>
   </div>
   
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden bg-white w-full border-t border-gray-200">
-    <div class="container mx-auto px-4 py-4">
-      <div class="flex flex-col space-y-4">
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-50 hidden md:hidden" style="backdrop-filter: blur(4px);">
+    <div class="absolute right-0 top-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 translate-x-full">
+      <div class="p-4 border-b">
+        <button id="close-menu" class="text-gray-500 hover:text-gray-700">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="py-4">
         {navItems.map(item => (
-          <a href={item.url} class="block py-2 text-gray-700 hover:text-primary-600 transition-colors text-lg">
+          <a href={item.url} class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-primary-600 transition-colors">
             {item.name}
           </a>
         ))}
-        <a href="/#contact" class="bg-primary-600 text-white px-4 py-3 rounded text-center hover:bg-primary-700 transition-colors text-lg">
+        <a href="/#contact" class="block px-4 py-3 mt-2 bg-primary-600 text-white hover:bg-primary-700 transition-colors mx-4 rounded text-center">
           Get a Quote
         </a>
       </div>
@@ -54,16 +61,44 @@ const navItems = [
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const closeMenuButton = document.getElementById('close-menu');
     const mobileMenu = document.getElementById('mobile-menu');
+    const menuPanel = mobileMenu.querySelector('div');
     
-    mobileMenuButton.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+    function openMenu() {
+      mobileMenu.classList.remove('hidden');
+      setTimeout(() => {
+        menuPanel.classList.remove('translate-x-full');
+      }, 10);
+    }
+    
+    function closeMenu() {
+      menuPanel.classList.add('translate-x-full');
+      setTimeout(() => {
+        mobileMenu.classList.add('hidden');
+      }, 300);
+    }
+    
+    mobileMenuButton.addEventListener('click', openMenu);
+    closeMenuButton.addEventListener('click', closeMenu);
+    
+    // Close menu when clicking outside
+    mobileMenu.addEventListener('click', (e) => {
+      if (e.target === mobileMenu) {
+        closeMenu();
+      }
+    });
+    
+    // Close mobile menu when clicking on links
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
     });
     
     // Handle navbar transparency
     const navbar = document.getElementById('navbar');
     
-    window.addEventListener('scroll', () => {
+    function updateNavbar() {
       if (window.scrollY > 50) {
         navbar.classList.add('bg-white', 'shadow-md');
         navbar.classList.remove('bg-transparent');
@@ -71,21 +106,9 @@ const navItems = [
         navbar.classList.remove('bg-white', 'shadow-md');
         navbar.classList.add('bg-transparent');
       }
-    });
-    
-    // Initial check
-    if (window.scrollY > 50) {
-      navbar.classList.add('bg-white', 'shadow-md');
-    } else {
-      navbar.classList.add('bg-transparent');
     }
     
-    // Close mobile menu when clicking on links
-    const mobileLinks = mobileMenu.querySelectorAll('a');
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-      });
-    });
+    window.addEventListener('scroll', updateNavbar);
+    updateNavbar(); // Initial check
   });
 </script>
