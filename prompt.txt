@@ -1,0 +1,79 @@
+Using Astro, Design a professional, responsive landing page website for N.A. Engineering Resources that highlights their expertise in Fiberglass Engineering (FRP) and Mechanical & Electrical (M&E) Services. The site must emphasize durability, technical precision, and industrial reliability while ensuring user-friendly navigation and lead generation. Use below information for website content
+
+Welcome to N.A. Engineering Resources
+Specialists in Fiberglass Engineering & M&E Services
+Your Trusted Partner for FRP Solutions and Mechanical & Electrical Services
+
+We offer high-quality design, fabrication, and installation of Fiberglass Reinforced Plastic (FRP) products. With extensive experience and a skilled workforce, we guarantee corrosion-resistant, durable, and cost-effective solutions tailored to industrial needs.
+
+About Us
+Who We Are
+N.A. Engineering Resources is an engineering company specializing in Fiberglass (FRP) solutions and Mechanical & Electrical (M&E) services. With years of expertise, we are committed to delivering products and services that meet the highest industry standards, backed by unmatched quality assurance.
+
+Our Expertise
+
+Design and fabrication of FRP tanks, ducting systems, and custom products.
+Corrosion-resistant lining and coating for water treatment plants and chemical industries.
+
+M&E services: Installation, maintenance, and air pollution control systems.
+
+Services
+Core Offerings
+
+Fiberglass Engineering (FRP)
+
+Custom FRP Tank Fabrication (Round, Square, Cone).
+
+FRP Lining & Coating for Chemical and Water Treatment Plants.
+
+Air Pollution Control Systems (FRP Scrubbers, Ducting).
+
+
+M&E Services
+
+Mechanical & Electrical System Installation.
+
+Labor Supply and Industrial Cleaning Services.
+
+Products: 
+
+FRP Wet Scrubber
+FRP Ducting & Pipe
+FRP Water Slide
+FRP Fitting & Connector
+FRP Custom Made
+FRP Lining & Coating
+FRP Round Tanks
+Petronas Stations
+FRP Centrifugal Exhaustfan
+FRP Square Tanks
+FRP Cone Tanks
+Swimming pool
+Carbon Fiber
+
+Why Choose Us?
+Premium Quality: Durable products with post-sales warranties.
+
+Competitive Pricing: Cost-effective solutions without compromising quality.
+
+Skilled Workforce: Certified FRP and M&E specialists.
+
+Contact Us
+Get a Quote Today!
+📞 WhatsApp: 016-790 4264
+📍 Location: [Add Company Address]
+
+Footer
+© N.A. Engineering Resources | Experts in FRP & M&E Services since [Year Established].
+
+Web Development Notes:
+
+Use a clean, professional layout with images of FRP tanks, scrubbers, and installations.
+
+Add a page for each product and put short description and image gallery up to 5.
+
+Add a floating WhatsApp button linked to 016-790 4264 for instant inquiries.
+
+SEO Optimization: Target keywords like FRP Malaysia, Fiberglass Tank Installation, Air Pollution Control System.
+
+Consider adding a bilingual toggle (English/Malay) for broader reach.

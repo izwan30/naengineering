@@ -1,0 +1,78 @@
+---
+const products = [
+  {
+    name: "FRP Wet Scrubber",
+    description: "High-efficiency air pollution control devices designed for removing particulates and gases from industrial exhaust streams.",
+    image: "https://images.pexels.com/photos/2760243/pexels-photo-2760243.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    link: "/products/frp-wet-scrubber"
+  },
+  {
+    name: "FRP Ducting & Pipe",
+    description: "Corrosion-resistant ducting systems for air handling and pipe systems for fluid transport in chemical environments.",
+    image: "https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    link: "/products/frp-ducting-pipe"
+  },
+  {
+    name: "FRP Water Slide",
+    description: "Custom-designed, durable water slides for aquatic facilities, featuring vibrant colors and smooth, safe surfaces.",
+    image: "https://images.pexels.com/photos/2499778/pexels-photo-2499778.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    link: "/products/frp-water-slide"
+  },
+  {
+    name: "FRP Round Tanks",
+    description: "Corrosion-resistant storage solutions for various chemicals and liquids, designed for durability and reliability.",
+    image: "https://images.pexels.com/photos/2760241/pexels-photo-2760241.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    link: "/products/frp-tanks"
+  }
+];
+---
+
+<section id="products" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-heading">Our Products</h2>
+      <div class="w-20 h-1 bg-primary-600 mx-auto mb-6"></div>
+      <p class="text-lg text-gray-600">Explore our range of high-quality FRP solutions</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {products.map((product, index) => (
+        <div 
+          class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1"
+          data-aos="fade-up"
+          data-aos-delay={index * 100}
+        >
+          <div class="relative h-56 overflow-hidden">
+            <img 
+              src={product.image} 
+              alt={product.name}
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 font-heading">{product.name}</h3>
+            <p class="text-gray-600 mb-4">{product.description}</p>
+            <a 
+              href={product.link}
+              class="inline-block text-primary-600 hover:text-primary-800 font-medium transition-colors"
+            >
+              View Details
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <div class="text-center mt-12">
+      <a 
+        href="/products"
+        class="inline-block bg-primary-600 hover:bg-primary-700 text-white font-medium px-6 py-3 rounded-md transition-colors"
+      >
+        View All Products
+      </a>
+    </div>
+  </div>
+</section>

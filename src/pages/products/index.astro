@@ -1,0 +1,201 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const products = [
+  {
+    name: "FRP Wet Scrubber",
+    description: "High-efficiency air pollution control devices designed for removing particulates and gases from industrial exhaust streams.",
+    image: "https://images.pexels.com/photos/2760243/pexels-photo-2760243.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    link: "/products/frp-wet-scrubber"
+  },
+  {
+    name: "FRP Ducting & Pipe",
+    description: "Corrosion-resistant ducting systems for air handling and pipe systems for fluid transport in chemical environments.",
+    image: "https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    link: "/products/frp-ducting-pipe"
+  },
+  {
+    name: "FRP Water Slide",
+    description: "Custom-designed, durable water slides for aquatic facilities, featuring vibrant colors and smooth, safe surfaces.",
+    image: "https://images.pexels.com/photos/2499778/pexels-photo-2499778.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    link: "/products/frp-water-slide"
+  },
+  {
+    name: "FRP Fitting & Connector",
+    description: "High-quality fittings and connectors designed for use with FRP piping systems in corrosive environments.",
+    image: "https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    link: "/products/frp-fitting-connector"
+  },
+  {
+    name: "FRP Custom Made",
+    description: "Bespoke FRP solutions tailored to your specific requirements, from custom shapes to specialized applications.",
+    image: "https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    link: "/products/frp-custom-made"
+  },
+  {
+    name: "FRP Lining & Coating",
+    description: "Protective linings and coatings for tanks, vessels, and equipment exposed to corrosive chemicals.",
+    image: "https://images.pexels.com/photos/912110/pexels-photo-912110.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    link: "/products/frp-lining-coating"
+  },
+  {
+    name: "FRP Round Tanks",
+    description: "Corrosion-resistant storage solutions for various chemicals and liquids, designed for durability and reliability.",
+    image: "https://images.pexels.com/photos/2760241/pexels-photo-2760241.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    link: "/products/frp-tanks"
+  },
+  {
+    name: "FRP Square Tanks",
+    description: "Space-efficient square and rectangular tanks for storage of corrosive materials in industrial applications.",
+    image: "https://images.pexels.com/photos/162568/oil-industry-oil-rig-equipment-clouds-162568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    link: "/products/frp-square-tanks"
+  },
+  {
+    name: "FRP Cone Tanks",
+    description: "Specialized conical bottom tanks designed for efficient drainage and solids separation in process applications.",
+    image: "https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    link: "/products/frp-cone-tanks"
+  },
+  {
+    name: "FRP Centrifugal Exhaustfan",
+    description: "Corrosion-resistant exhaust fans for ventilation systems in chemical processing and industrial environments.",
+    image: "https://images.pexels.com/photos/4062567/pexels-photo-4062567.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    link: "/products/frp-centrifugal-exhaustfan"
+  },
+  {
+    name: "Swimming Pool",
+    description: "Custom-designed FRP swimming pools offering durability, leak resistance, and aesthetic appeal for commercial and residential use.",
+    image: "https://images.pexels.com/photos/261327/pexels-photo-261327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    link: "/products/swimming-pool"
+  },
+  {
+    name: "Carbon Fiber",
+    description: "High-strength, lightweight carbon fiber components for specialized applications requiring superior mechanical properties.",
+    image: "https://images.pexels.com/photos/2251206/pexels-photo-2251206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    link: "/products/carbon-fiber"
+  }
+];
+
+const categories = [
+  "All Products",
+  "Storage Solutions",
+  "Air Pollution Control",
+  "Water Treatment",
+  "Custom Fabrication"
+];
+---
+
+<Layout 
+  title="Products | N.A. Engineering Resources"
+  description="Explore our full range of FRP products and M&E services - from tanks and scrubbers to custom solutions for your industrial needs."
+>
+  <div class="pt-20">
+    <div class="bg-primary-900 text-white py-16">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl font-bold mb-4 font-heading" data-aos="fade-up">Our Products</h1>
+        <p class="text-xl max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+          Discover our comprehensive range of high-quality FRP products and M&E services designed for durability, reliability, and performance.
+        </p>
+      </div>
+    </div>
+    
+    <div class="container mx-auto px-4 py-12">
+      <!-- Product Categories -->
+      <div class="mb-10 overflow-x-auto">
+        <div class="inline-flex space-x-2 min-w-full pb-4" data-aos="fade-up">
+          {categories.map((category, index) => (
+            <button 
+              class={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${index === 0 ? 'bg-primary-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
+              data-category={category}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+      </div>
+      
+      <!-- Products Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {products.map((product, index) => (
+          <div 
+            class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl hover:-translate-y-1"
+            data-aos="fade-up"
+            data-aos-delay={index % 3 * 100}
+          >
+            <div class="relative h-56 overflow-hidden">
+              <img 
+                src={product.image} 
+                alt={product.name}
+                class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2 font-heading">{product.name}</h3>
+              <p class="text-gray-600 mb-4">{product.description}</p>
+              <a 
+                href={product.link}
+                class="inline-block text-primary-600 hover:text-primary-800 font-medium transition-colors"
+              >
+                View Details
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+    
+    <!-- CTA Section -->
+    <div class="bg-gray-50 py-16">
+      <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+        <h2 class="text-3xl font-bold mb-6 font-heading">Can't Find What You're Looking For?</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          We offer custom fabrication services tailored to your specific requirements. Contact us to discuss your project needs.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a 
+            href="/#contact" 
+            class="inline-block bg-primary-600 hover:bg-primary-700 text-white font-medium px-6 py-3 rounded-md transition-colors"
+          >
+            Contact Us
+          </a>
+          <a 
+            href="https://wa.me/60167904264" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="inline-block bg-green-500 hover:bg-green-600 text-white font-medium px-6 py-3 rounded-md transition-colors flex items-center"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+            </svg>
+            WhatsApp Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const categoryButtons = document.querySelectorAll('[data-category]');
+    
+    categoryButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Update active button
+        categoryButtons.forEach(btn => {
+          btn.classList.remove('bg-primary-600', 'text-white');
+          btn.classList.add('bg-gray-100', 'text-gray-700', 'hover:bg-gray-200');
+        });
+        
+        button.classList.remove('bg-gray-100', 'text-gray-700', 'hover:bg-gray-200');
+        button.classList.add('bg-primary-600', 'text-white');
+        
+        // Here you would typically filter products by category
+        // For this demo, we'll just show all products
+      });
+    });
+  });
+</script>
